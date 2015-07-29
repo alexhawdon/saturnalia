@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}| News // {{article.title}}{% endblock %}
+
+{% block content %}
+<div class="row floatLeft">
+    <div class="fourCol bgGreen">
+        <h1>LATEST NEWS</h1>
+        {% if article.image %}<img src="{{article.image.url}}" class="newsImage">{% endif %}
+        <p class="newsDate">{{article.date|date:"jS F Y"}}</p>
+        <p class="newsTitle">{{article.title}}</p>
+        <div class="newsText">{{ article.text|safe }}</div>
+        <ul class="newsCategoryList">Tags: 
+            {% for tag in article.category.all %}<li><a href="{{tag.get_absolute_url}}">{{tag.name}}</a></li>{% if not forloop.last %},{% endif %}{% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">{% include "sidebar_category_list.html" %}</div>
+    <div class="row">{% include "sidebar_newsletter.html" %}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Application Successful{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen minTwoColHigh">
+            <h1>Application Successful</h1>
+            <p class="feature">Speak to you soon!</p>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+</div>
+{% endblock %}

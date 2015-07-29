@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Reset Sent{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen minTwoColHigh">
+            <h1>Reset Sent</h1>
+            <p>A new password has been sent to the specified email address.</p>
+            <p>After logging in with this password you can change it to one of your choosing using the ambassador dashboard</p>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+</div>
+{% endblock %}

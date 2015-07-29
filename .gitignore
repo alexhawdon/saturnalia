@@ -1,0 +1,4 @@
+tickets/*
+*.pyc
+settings.py
+!tickets/

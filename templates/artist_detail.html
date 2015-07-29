@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}| {{artist.name}}{% endblock %}
+
+{% block content %}
+<div id="mainPane" class="floatLeft">
+    <div class="row">
+        <div class="fourCol bgGreen mainBox">
+            <h1>{{artist.name}}</h1>
+            <div class="row">
+                <img src="{{artist.image.url}}" class="artistImage" alt="{{artist.name}}" title="{{artist.name}}">
+                <p>
+                    {% for detail_line in detail_lines %}
+                    {{detail_line.line}}<br>
+                    {% endfor %}
+                </p>
+            </div>
+            <p>{{artist.description|linebreaksbr}}</p>
+        </div>
+    </div>
+</div>
+<div id="sidebar">
+    <a href="{{artist.facebook}}"><div class="socialMediaBox facebook bgWhite fadeBgBlue" title="Facebook"></div></a>
+    {% if artist.website %}<a href="{{artist.website}}" title="Artist's Website"><div class="socialMediaBox website bgWhite fadeBgBlue"></div></a>{% endif %}
+    {% if artist.lastfm %}<a href="{{artist.lastfm}}" title="LastFm"><div class="socialMediaBox lastfm bgWhite fadeBgBlue"></div></a>{% endif %}
+    {% if artist.soundcloud %}<a href="{{artist.soundcloud}}" title="SoundCloud"><div class="socialMediaBox soundcloud bgWhite fadeBgBlue"></div></a>{% endif %}
+    {% if artist.myspace %}<a href="{{artist.myspace}}" title="MySpace"><div class="socialMediaBox myspace bgWhite fadeBgBlue"></div></a>{% endif %}
+    {% if artist.twitter %}<a href="{{artist.twitter}}" title="Twitter"><div class="socialMediaBox twitter bgWhite fadeBgBlue"></div></a>{% endif %}
+    {% if artist.youtube %}<a href="{{artist.youtube}}" title="YouTube"><div class="socialMediaBox youTube bgWhite fadeBgBlue"></div></a>{% endif %}
+    {% if artist.resident_advisor %}<a href="{{artist.resident_advisor}}" title="Resident Advisor"><div class="socialMediaBox residentAdvisor bgWhite fadeBgBlue"></div></a>{% endif %}
+</div>
+{% endblock %}

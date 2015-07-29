@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Confirm Order{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen fourSeventyHigh">
+            <h1>Confirm Your Details</h1>
+            <p class="important">Please make sure your email address is correct so you receive your tickets.</p>
+            <p>Name: {{first_name}} {{last_name}}</p>
+            <p>Email: {{email}}</p>
+            <p>Phone: {{phone}}</p>
+            <h1>Confirm Your Order</h1>
+            {% if tickets != "0" and tickets %}<p>{{tickets}} Ticket{{tickets|pluralize}} @ £55 + £2.50 booking fee each.</p>{% endif %}
+            {% if deposits != "0" and deposits %}<p>{{deposits}} Deposit{{deposits|pluralize}} @ £5.50 + £2.50 booking fee each.*</p>{% endif %}
+            {% if deposit_code_one %}<p>Balance for deposit {{deposit_code_one}} @ £49.50 each.</p>{% endif %}
+            {% if deposit_code_two %}<p>Balance for deposit {{deposit_code_two}} @ £49.50 each.</p>{% endif %}
+            {% if deposit_code_three %}<p>Balance for deposit {{deposit_code_three}} @ £49.50 each.</p>{% endif %}
+            {% if deposit_code_four %}<p>Balance for deposit {{deposit_code_four}} @ £49.50 each.</p>{% endif %}
+            {% if deposit_code_five %}<p>Balance for deposit {{deposit_code_five}} @ £49.50 each.</p>{% endif %}
+            <form method="POST"  action="/tickets/process_order/">
+              <input type="hidden" name="tickets" value="{{ tickets }}"/>
+              <input type="hidden" name="deposits" value="{{ deposits }}"/>
+              <input type="hidden" name="deposit_code_one" value="{{ deposit_code_one }}">
+              <input type="hidden" name="deposit_code_two" value="{{deposit_code_two}}">
+              <input type="hidden" name="deposit_code_three" value="{{deposit_code_three}}">
+              <input type="hidden" name="deposit_code_four" value="{{deposit_code_four}}">
+              <input type="hidden" name="deposit_code_five" value="{{deposit_code_five}}">
+              <input type="hidden" name="first_name" value="{{first_name}}"/>
+              <input type="hidden" name="last_name" value="{{last_name}}"/>
+              <input type="hidden" name="email" value="{{email}}"/>
+              <input type="hidden" name="phone" value="{{phone}}"/>
+              <input type="hidden" name="referring_ambassador_code" value="{{referring_ambassador_code}}"/>
+              <!-- Button code -->
+              <input id="checkoutButton"
+                type="image"
+                name="Google Checkout"
+                alt="Fast checkout through Google"
+                src="http://checkout.google.com/buttons/checkout.gif?merchant_id=210280845590798&w=180&h=46&style=trans&variant=text&loc=en_GB"
+                height="46"
+                width="180" />
+            </form>
+            {% if deposits != "0" %}<p class="error">* Remaining balance must be paid on deposits by 1/7/2011</p>{% endif %}
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

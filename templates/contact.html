@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Contact{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen contact">
+            <h1>Contact</h1>
+            <p class="feature">Questions/Comments/Ideas/Suggestions/Praise or Abuse - direct your communicaition to the appropriate target and we'll be in touch (unless we've already answered your question in our <a href="/faq/">FAQs</a>).</p>
+        </div>
+    </div>
+    {% for contact in contacts %}
+        <div class="row contactRow" onclick="$(this).next().slideToggle()">
+            <div class="contactImage" style="background-image: url({{contact.picture.url}})"><p>{{contact.name}}</p></div>
+            <div class="threeCol bgGreen contactDetails">
+                <p class="contactTitle">{{contact.title}}</p>
+                <p class="contactText">{{contact.description}}</p>
+            </div>
+        </div>
+        <div class="row" {% if not contact.get_absolute_url in request.path %} style="display: none;" {% endif %}>
+            <div class="fourCol bgWhite">
+                {% if errors %}<p class="error">Please enter a valid email address and a message.</p>{% endif %}
+                <form action="{{contact.get_absolute_url}}" method="post" class="contactForm">
+                    <ul>
+                        <li><label>Your email:</label><input type="text" name="email"</label></li>
+                        <li><label>Message:</label><textarea rows="10" cols="40" name="message"></textarea></li>
+                        <input type="hidden" name="to" value="{{contact.email}}">
+                    <ul>
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

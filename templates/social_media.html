@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Forgetful friend?{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen socialMediaHeader">
+            <h1>Social Media</h1>
+            <p class="feature">Tweet at us, follow us or just generally stalk us...</p>
+        </div>
+    </div>
+        <a href="http://www.facebook.com/summer.saturnalia"><div class="socialMediaBox bgWhite facebook fadeBgBlue"></div></a>
+        <a href="http://www.twitter.com/saturnaliafest"><div class="socialMediaBox bgWhite twitter fadeBgBlue"></div></a>
+        <a href="http://www.residentadvisor.net/profile/saturnalia"><div class="socialMediaBox bgWhite residentAdvisor fadeBgBlue"></div></a>
+        <a href="http://www.myspace.com/saturnaliafest"><div class="socialMediaBox bgWhite myspace fadeBgBlue"></div></a>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+</div>
+{% endblock %}

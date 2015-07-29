@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>Login</h1>
+            <p>Please login with correct email and password.</p>
+            <div class="row">
+                <form action="/login/" method="post">
+                    <ul>
+                        <li>
+                            <label for="username">E-mail: </label>
+                            <input type="text" name="username" id="username" value="" onKeyPress="return submitenter(this,event)" />
+                        </li>
+                        <li>
+                            <label for="password">Password: </label>
+                            <input type="password" name="password" id="password" value="" onKeyPress="return submitenter(this,event)" />
+                        </li>
+                    </ul>
+                    <input type="submit" value="Login" />
+                </form>
+            </div>
+                <p><a href="/forgotten-password/">> FORGOTTEN PASSWORD</a><br/>
+                <a href="/ambassador/register/">> REGISTER</a></p>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+</div>
+{% endblock %}

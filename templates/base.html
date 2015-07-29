@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-GB">
+<head>
+<meta name="description" content="22nd - 24th July 2011: A three day Music, Arts and Film festival set in the beautiful North Yorkshire countryside.">
+<meta name="keywords" content="Summer Saturnalia,SummerSaturnalia,Saturnalia,Huddersfield,Yorkshire,North Yorkshire, independent festival, festival">
+<link rel="stylesheet" href="/static/base.css" type="text/css">
+<link rel="shortcut icon" href="/static/favicon.ico">
+<link rel="image_src" href="http://www.summersaturnalia.com/static/images/logo.png">
+<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js"></script>
+<script type="text/javascript" src="/static/jquery.color.js"></script>
+{% block headerContent %}{% endblock %}
+<SCRIPT type="text/javascript" src="/static/saturnalia.js"></script>
+
+<title>Summer Saturnalia{% block sectionTitle %}{% endblock %}</title>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21855522-1']);
+  _gaq.push(['_setDomainName', '.summersaturnalia.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+<div id="container" class="autoOverflow">
+    <div id="header" class="autoOverflow">
+        <div id="navLogin">
+            {% if request.user.is_authenticated %}
+                {{request.user.get_full_name}} // <a href="/ambassador/dashboard">Dashboard</a> / <a href="/logout">Logout</a>
+            {% else %}
+                <a href="#" onclick="$('#loginForm').slideToggle();">Login</a> / <a href="/ambassador/">Register</a>
+            {% endif %}
+        </div>
+        <form id="loginForm" action="/login/" method="post">
+            <div>
+            <p class="floatLeft" id="loginFormLegend">LOGIN</p>
+            <img id="loginFormHide" class="floatRight clickable" onclick="$('#loginForm').slideUp();" src="/static/images/login_x.png" alt="Hide login form">
+            <br class="clearBoth">
+            <label for="username" id="loginFormUsernameLabel">E-mail: </label>
+            <input type="text" name="username" id="username" value="" size="14" onKeyPress="return submitenter(this,event)">
+            <label for="password" id="loginFormPasswordLabel">Password: </label>
+            <input type="password" name="password" id="password" value="" size="14" onKeyPress="return submitenter(this,event)">
+            <br class="clearBoth">
+            <div id="loginLinks">
+                <div id="loginForgotten"><a href="/forgotten-password/">FORGOTTEN PASSWORD</a></div>
+                <div id="loginLogin"><input type="submit" value="LOGIN" id="loginSubmit"></div>
+                <div id="loginRegister"><a href="/ambassador/">REGISTER</a></div>
+            </div>
+            <br class="clearBoth">
+            </div>
+        </form>
+        <br>
+        <br>
+        <div class="row">
+            <a href="/" title="Summer Saturnalia"><div id="navLogo" class="twoCol"><img src="/static/images/logo.png"></div></a>
+            <div class="oneCol">
+                <ul class="navLinks">
+                    <li><a href="/" {% if request.path == "/" %}class="activeNavLink"{% endif %}>Home</a></li>
+                    <li><a href="/news/" {% if "/news/" in request.path %}class="activeNavLink"{% endif %}>News</a></li>
+                    <li><a href="/artists/" {% if "/artists/" in request.path %}class="activeNavLink"{% endif %}>Artists</a></li>
+                    <li><a href="/about/" {% if "/about/" in request.path %}class="activeNavLink"{% endif %}>About</a></li>
+                </ul>
+            </div>
+            <div class="oneCol">
+                <ul class="navLinks">
+                    <li><a href="/tickets/" {% if "/tickets/" in request.path %}class="activeNavLink"{% endif %}>Tickets</a></li>
+                    <li><a href="/whats-on/" {% if "/whats-on/" in request.path %}class="activeNavLink"{% endif %}>What's On</a></li>
+                    <li><a href="/faq/" {% if "/faq/" in request.path %}class="activeNavLink"{% endif %}>FAQ</a></li>
+                    <li><a href="/contact/" {% if "/contact/" in request.path %}class="activeNavLink"{% endif %}>Contact</a></li>
+                </ul>
+            </div>
+            <div class="oneCol">&nbsp;</div>
+            <div class="oneCol">
+                <ul class="navLinks">
+                    <li><a href="/ambassador/" {% if "/ambassador/" in request.path %}class="activeNavLink"{% endif %}>Ambassador Scheme</a></li>
+                    <li>&nbsp;</li>
+                    <li><a href="/social-media/" {% if "/social-media/" in request.path %}class="activeNavLink"{% endif %}>Social Media</a></li>
+                    <li><a href="/newsletter/" {% if "/newsletter/" in request.path %}class="activeNavLink"{% endif %}>Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+        <br class="clearBoth">
+    </div>
+    <div id="contentArea" class="autoOverflow">  
+        {% block content %}{% endblock %}
+    </div>
+    <div id="footer" class="autoOverflow footer">
+        <div id="missionStatement" class="twoCol bgRed footer">
+            <h1>Mission Statement</h1>
+            <p>Summer Saturnalia is a non-profit event dedicated to providing both a platform for talented musicians and artists, and a friendly, welcoming environment for like-minded people to come together and appreciate these works.</p>
+            <p>We are committed to providing a truly unique experience which is facilitated by close co-operation with contributors and guests alike: everyone is involved.</p>
+            <p class="TcsandCs"><br><a href="/terms-and-conditions/">Terms and Conditions</a><br><a href="/terms-and-conditions/#privacy-policy">Privacy Policy</a></p>
+        </div>
+        <div class="twoCol bgRed footer">
+            <h1>Contact</h1>
+            <p>Summer Saturnalia<br>Highfield Court<br>Highfields Road<br>Huddersfield<br>HD1 5NG</p>
+            <a href="mailto:info@summersaturnalia.com"><p>info@summersaturnalia.com</p></a>
+            <h1>Follow us</h1>
+            <p><a href="http://www.facebook.com/summer.saturnalia">Facebook</a><br>
+               <a href="http://www.twitter.com/saturnaliafest">Twitter</a><br>
+               <a href="http://www.myspace.com/saturnaliafest">MySpace</a><br>
+               <a href="http://www.residentadvisor.net/profile/saturnalia">Resident Advisor</a>
+             </p>
+        </div>
+        <div class="twoCol">
+            <div class="row bgRed halfFooter">
+                <h1>Friends & Partners</h1>
+                <div class="logoRow">
+                    <a href="http://www.welovenoise.com" id="lukeLink"><img class="logoPartners" src="/static/images/logo_welovenoise.png"><p class="footerLogoText lukeLogo">Design by <span>WeLoveNoise</span></p></a>
+                </div>
+                <div class="logoRow">
+                    <img class="logoPartners alexLogo" src="/static/images/logo_alex.png"><p class="footerLogoText alexLogo">Build <span>by Alex Hawdon</span></p>
+                </div>
+            </div>
+            <div class="bgRed halfFooter friends">
+                <div>
+                    <a href="http://www.facebook.com/group.php?gid=155349657826708"><img id="minimal" src="/static/images/logo_minimal.png"></a>
+                    <a href="http://www.barnardos.org.uk/"><img id="barnardos" src="/static/images/logo_barnardos.png"></a>
+                </div>
+                <a href="http://www.undertheviaduct.com/sportsman/"><img id="sportsman" src="/static/images/logo_sportsman.png"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

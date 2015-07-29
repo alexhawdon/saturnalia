@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | About{% endblock %}
+
+{% block content %}
+<div id="mainPane" class="floatLeft">
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>About</h1>
+            <p class="feature">Summer Saturnalia is a three day, not-for-profit, Music, Arts &amp; Film festival taking place in the sunny fields of North Yorkshire on the 22nd-24th of July 2011.</p>
+            <p>As with all the best festivals, Summer Saturnalia was imagined into existence by a bunch of friends who love to put on a good party.  Before long the ideas were realised in the form of a weekend music festival featuring some amazing artists from Huddersfield and beyond.  The organisers, staff and guests were all one huge network of friends in the inaugural year, which gave the event a truly unique atmosphere.  Guests travelled from as far afield as Holland to experience it, and the result was nothing less than spectacular.</p>
+            <p>After returning from a lengthy, well-deserved rest, we decided it would be a crime against all that is awesome if we weren't to build on the Saturnalia concept and run another festival this year.</p>
+            <p>Summer Saturnalia 2011 is larger and more adventurous than our first event, but stays true to the not-for-profit, just-for-fun ethos of last year.  This year we have partnered with the children's charity, Barnardos, which runs 415 projects across the UK, and works directly with over 100,000 families providing services for vulnerable children. We encourage you to visit their <a href="http://www.barnardos.org.uk">website to find out more.</a></p>
+            <p>We have an amazing music line-up developing, drawing talent from across the UK: Saturnalia's performers are guaranteed to cater for all tastes.  Guests can also look forward to live art, installation pieces, film, daytime activities, body art, massage and many other surprises. Summer Saturnalia 2010 gave us and our friends some amazing memories, and we can't wait to bring the magic to even more of you in 2011.</p>
+            <p>We look forward to seeing you all in July.</p>
+            <img src="/static/images/signature.png" alt="Summer Saturnalia x">
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

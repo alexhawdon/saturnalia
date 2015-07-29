@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Ambassador Registration{% endblock %}
+
+{% block content %}
+<div id="mainPane" class="floatLeft">
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>Ambassador Registration</h1>
+            <form action="" method="post" id="registrationForm">
+            <ul>
+            {{ registration_form.as_ul }}
+            </ul>
+            <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

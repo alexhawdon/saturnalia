@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %}| Newsletter{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen newsletterBox">
+            <h1>Newsletter</h1>
+            <p class="feature">Subscribe to receive occasional updates about exciting Summer Saturnalia-related happenings.</p>
+            <div class="row">
+                <form action="/newsletter/" method="post">
+                    <ul>
+                        {{ form.as_ul }}
+                    </ul>
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+<div class="twoCol bgWhite latestNews">
+    <p class="sideSectionHeader">LATEST NEWS</p>
+    <p class="sideDate">{{latest_news.date|date:"jS F Y"}}</p>
+    <p class="sideNewsHeadline">{{latest_news.title}}</p>
+    <p class="sideBodyText">{{latest_news.text|removetags:"a p"|truncatewords:60}}</p>
+    <div class="sideReadMore"><a href="{{latest_news.get_absolute_url}}">READ MORE...</a></div>
+</div>

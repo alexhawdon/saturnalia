@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}| Artists{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="sixCol bgGreen">
+        <h1>ARTISTS</h1>
+        <p class="feature">We're very excited about the line-up we're compiling.  With around 60 bands, DJs and solo artists spanning the genres, there'll be something for everyone.  We've invited back some of last year's highlights, and are busy signing up both established and fresh talent to complement our wonderful arenas and add to the Saturnalia vibe.  New artist profiles will be added regularly, so check back to see what other musical delights you'll have the pleasure of experiencing in July.</p>
+    </div>
+</div>
+{% for artist in topSix %}
+    <a href={{artist.get_absolute_url}} title="{{artist.name}}"><div style="background-image: url({{artist.image.url}})" class="artistMenuImage"><p>{{artist.name}}</p></div></a>
+{% endfor %}
+{% for artist in artists %}
+    <a href={{artist.get_absolute_url}} title="{{artist.name}}"><div style="background-image: url({{artist.thumbnail.url}})" class="artistThumbnailImage"><p>{{artist.name}}</p></div></a>
+{% endfor %}
+<div class="sixCol bgGreen row">
+        <h1>WANT TO PLAY?</h1>
+        <p class="feature">If you're a musical type and are interested in playing at the festival we'd love to hear from you.  Use our <a href="/artists/apply">artist application form</a> to tell us about yourself and we'll be in touch.</p>
+    </div>
+{% endblock %}

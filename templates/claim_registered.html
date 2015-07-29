@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Claim Registered{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen minTwoColHigh">
+            <h1>Claim Registered</h1>
+            <p class="feature">Your claim was successfully registered.</p>
+            <p>We'll do our best to find the sale.  All being well it should appear in a day or two.</p>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+</div>
+{% endblock %}

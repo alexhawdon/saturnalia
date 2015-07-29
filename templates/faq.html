@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}| FAQ{% endblock %}
+
+{% block content %}
+<div id="mainPane" class="floatLeft">
+    <div class="row">
+        <div class="fourCol bgGreen mainBox">
+            <h1>FAQs</h1>
+            <p class="feature">Answers to a few common questions.  If you have a question that isn't listed here, get in touch with the right person using our <a href="/contact/">contact form</a>.</p>
+        </div>
+    </div>
+    {% for section in sections %}
+    <div class="row faqSection">
+        <div class="fourCol bgGreen">
+            <a id="{{section.get_id}}" href="#{{section.get_id}}" title="Link to this FAQ Section"><h1>{{section.name}}</h1></a>
+            {% for qapair in qapairs %}
+                {% if qapair.section == section %}
+                    <a id="{{qapair.get_id}}" href="#{{qapair.get_id}}" title="Link to this Question"><p class="question">Q: {{qapair.question|safe}}</p></a>
+                    <p class="answer">A: {{qapair.answer|safe}}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div id="sidebar">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

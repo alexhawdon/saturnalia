@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Ameneties{% endblock %}
+
+{% block content %}
+<div id="mainPane" class="floatLeft">
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>Saturnalia Snacks</h1>
+            <p class="feature">Supplying cooked breakfasts, gourmet burgers/hotdogs, sandwiches and other lunchtime sundries, teas and coffees, and something delicious and home-cooked in the evening.  Weather permitting, a Saturnalia BBQ will be happening on the Sunday!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>Saturnalia Paraphernalia</h1>
+            <p class="feature">Summer Saturnalia HQ will feature a small shop selling various essentials: cigs/tobacco; official Summer Saturnalia t-shirts (accept no cheap imitations from the touts outside!), batteries and stuff; sweets and paracetamols to sooth fuzzy heads; and a few surprises, both practical and totally impractical!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>The Basics</h1>
+            <p>More toilets than we need, serviced throughout the weekend.</p>
+            <p>Free water, as per any big event like this - gotta brush your teeth (please!)</p>
+            <p>Mobile phone charging - located in Hyperion, just a point to plug in for awhile while you relax to to audio/visual treats.</p>
+            <p>First-Aiders and First Aid point, available throughout the weekend.</p>
+            <p>Summer Saturnalia Spaceguard: our friendly security team keeping the outside world where it should be - out!</p>
+            <p>Volunteers from Barnardos will be available for assistance.</p>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

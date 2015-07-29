@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="mainPane" class="floatLeft">
+    <div class="row">
+        <div class="fourCol bgGreen mainBox">
+            {% block mainContent %}{% endblock %}
+        </div>
+    </div>
+</div>
+<div id="sidebar">
+    <div class="row">
+        <div class="twoCol bgWhite">
+            <p class="sideSectionHeader">LATEST NEWS</p>
+            <p class="sideDate">26th January 2011</p>
+        </div>
+    </div>
+    <div class="rowContainer">
+        <div class="oneCol bgFuschia">1-Col</div>
+    </div>
+</div>
+{% endblock %}

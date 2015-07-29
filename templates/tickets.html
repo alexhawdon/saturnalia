@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Purchase Tickets{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen fourSeventyHigh">
+            <h1>Purchase Tickets</h1>
+                <p>If you have previously purchased a deposit and would like to pay the balance, go <a href="/tickets/pay-balance/">here</a>.</p>
+                <form method="GET" action="" id="ticketForm">
+                <ul>
+                    {{ form.as_ul }}
+                </ul>
+                <input type="submit" value="Confirm Order">
+                </form>
+                <br class="clearBoth">
+                <p class="error">* Remaining balance must be paid on deposits by 1/7/2011</p>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

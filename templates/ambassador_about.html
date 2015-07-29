@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Ambassador Scheme{% endblock %}
+
+{% block content %}
+<div id="mainPane" class="floatLeft">
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>Ambassador Scheme</h1>
+            <p class="feature">MORE THAN THE BEAUTIFUL ARENAS, FANTASTIC MUSIC AND (MOSTLY) GREAT WEATHER, IT WAS THE AMAZING GUESTS THAT REALLY MADE LAST YEAR'S SATURNALIA A HUGE SUCCESS. THE ONLY WAY TO ACHIEVE THIS IS THROUGH WORD-OF-MOUTH: YOU SURE DON'T ACHIEVE A GUARANTEED TURN-OUT OF FANTASTIC PEOPLE BY PUTTING AN AD IN THE PAPER!</p>
+            <p>The guests we spoke to after last year's event were excited about 2011 and really looking forward to bringing along their friends to share in the fun. We quickly realised that this is by far the best way to grow the event without compromising on the things that make Summer Saturnalia what it is, so it was an easy decision to recognise and support this enthusiasm by initiating the Ambassador Scheme.</p>
+            <p>If you're reading this page then a friend has invited <em>you</em> to become an Ambassador. As an Ambassador you'll be able to bring all your friends along to Summer Saturnalia 2011 and get in yourself for a fraction of the normal ticket cost (you only pay the deposit).</p>
+            <p>If you invite the most friends you'll win the 'Ambassador One Suite': a huge tent for you and your friends to spend the festival in style and comfort, completely kitted out with everything you'll need for the entire weekend, from airbeds to power for charging your gadgets. Just turn up with your clothes and all will be provided for you. When the festival is over you can take the whole thing home with you.</p>
+            <p>You can choose your own Ambassador code and start inviting your friends straight away. You’ll have access to your own dashboard so you can keep track of all the friends who’ll be coming with you and see how you doing in the ‘Ambassador One’ competition.</p>
+            <p>All you have to do is get ten friends to come with you using your Ambassador code and that's it! All your friends’ tickets must be purchased before the 1st of July 2011 for you to qualify.</p>
+            <p>As this is a not-for-profit event, all contributors, including bands and DJ’s, are bound by the Ambassador Scheme too. The only difference is that solo artists and contributors have to bring three friends, while groups have to bring six friends between them.</p>
+            <p>There is a limit on the number of Ambassador accounts available, so if you’ve been invited to be one, then be quick! Once they’re gone, they’re gone.</p>
+        </div>
+    </div>
+    <div class="row">
+        <a href="/ambassador/register"><div class="fourCol bgWhite fadeBgBlue">
+            <h1 id="registerLink">Register to get started.</h1>
+        </div></a>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

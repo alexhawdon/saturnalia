@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}| News{% endblock %}
+
+{% block content %}
+<div class="floatLeft">
+    {% for article in page.object_list %}
+        <div class="row">
+            <div class="fourCol bgGreen">
+                {% if forloop.first %}
+                    <h1>NEWS</h1>
+                    <p class="newsDate">{{article.date|date:"jS F Y"}}</p>
+                    <p class="newsTitle">{{article.title}}</p>
+                    <div class="newsText">
+                        <p>{{ article.text|removetags:"a p"|truncatewords:60 }} <a href="{{article.get_absolute_url}}">continue reading</a></p>
+                    </div>
+                {% else %}
+                    <p class="newsDate">{{article.date|date:"jS F Y"}}</p>
+                    <p class="newsTitle">{{article.title}}</p>
+                    <div class="newsText">
+                        <p>{{ article.text|removetags:"a p"|truncatewords:40 }} <a href="{{article.get_absolute_url}}">continue reading</a></p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    {% if pages %}
+        <div class="fourCol floatLeft">
+            <ul class="pagination">
+                {% if page.has_previous %}<li><a href="{{pagination_prefix}}{{page.previous_page_number}}/"><img src="/static/images/left-pagination-arrow.png" alt="Left Arrow" title="Previous"></a></li>{% endif %}
+                {% for pagenum in page_range %}
+                    {% if pagenum == page.number %}<li class="inactive">{{pagenum}}</li>
+                    {% else %}<li><a href="{{pagination_prefix}}{{pagenum}}/">{{pagenum}}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page.has_next %}<li><a href="{{pagination_prefix}}{{page.next_page_number}}/"><img src="/static/images/right-pagination-arrow.png" alt="Right Arrow" title="Next"></a></li>{% endif %}
+            </ul>
+        </div>
+    {% endif %}
+</div>
+<div class="floatLeft">
+    <div class="row">{% include "sidebar_category_list.html" %}</div>
+    <div class="row">{% include "sidebar_newsletter.html" %}</div>
+</div>
+{% endblock %}

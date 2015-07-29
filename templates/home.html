@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block headerContent %}
+<script type="text/javascript" src="/static/flowplayer-3.2.6.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var festivalStart = new Date(2011, 7, 22, 12, 0, 0, 0),
+            weeksOut = $('#weeks'),
+            daysOut = $('#days'),
+            hoursOut = $('#hours'),
+            minutesOut = $('#minutes'),
+            secondsOut = $('#seconds'),
+            millisecondsOut = $('#milliseconds');
+    
+    function twoDigits(i){
+        if (i<10)
+            {
+                i="0" + i;
+            }
+        return i;
+    }
+    
+    function threeDigits(i){
+        if (i<10){
+                i="00" + i;
+        }
+        else if (i<100){
+                i="0" + i;
+        }
+        return i;
+    }
+    
+    setInterval(function(){
+        now = new Date();
+        remaining = festivalStart - now;
+        weeksLeft = Math.floor(remaining / 604800000),
+        remaining = remaining % 604800000;
+        daysLeft = Math.floor(remaining / 86400000),
+        remaining = remaining % 86400000;
+        hoursLeft = Math.floor(remaining / 3600000),
+        remaining = remaining % 3600000;
+        minutesLeft = Math.floor(remaining / 60000),
+        remaining = remaining % 60000;
+        secondsLeft = Math.floor(remaining / 1000),
+        remaining = remaining % 1000;
+        millisecondsLeft = remaining;
+        hoursLeft = twoDigits(hoursLeft),
+        minutesLeft = twoDigits(minutesLeft),
+        secondsLeft = twoDigits(secondsLeft),
+        millisecondsLeft = threeDigits(millisecondsLeft);
+        weeksOut.text(weeksLeft),
+        daysOut.text(daysLeft),
+        hoursOut.text(hoursLeft),
+        minutesOut.text(minutesLeft),
+        secondsOut.text(secondsLeft),
+        millisecondsOut.text(millisecondsLeft);
+    }, 50);
+});
+</script>
+{% endblock %}
+
+{% block sectionTitle %} | Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div id="frontBanner">
+        <div class="bannerCol">
+            <div class="bannerText">
+                <p class="bannerTopText"><span id="weeks">6</span> WEEKS</p>
+                <p class="bannerBottomText"><span id="days">120</span> DAYS</p>
+            </div>
+        </div>
+        <div class="bannerCol">
+            <div class="bannerText">
+                <p class="bannerTopText"><span id="hours">14</span> HOURS</p>
+                <p class="bannerBottomText"><span id="minutes">21</span> MINUTES</p>
+            </div>
+        </div>
+        <div class="bannerCol">
+            <div class="bannerText">
+                <p class="bannerTopText"><span id="seconds">34</span> SECONDS</p>
+                <p class="bannerBottomText"><span id="milliseconds">108</span> MILLISECONDS</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div class="fourCol bgGreen" id="homeWhatIs">
+<h1>WHAT IS<br>SUMMER SATURNALIA?</h1>
+<p class="feature">Summer Saturnalia is a three day, not-for-profit, Music, Arts &amp; Film festival taking place in the sunny fields of North Yorkshire on the 22nd-24th of July 2011...</p>
+<div class="sideReadMore"><a href="/about/">READ MORE...</a></div>
+</div>
+<a href="http://www.twitter.com/saturnaliafest" title="Follow us..."><span class="oneCol bgGreen fadeBgBlue socialMediaBox twitter"></span></a>
+<a href="http://www.facebook.com/summer.saturnalia" title="Stalk us..."><span class="oneCol bgGreen fadeBgBlue socialMediaBox facebook"></span></a>
+<a href="#" rel="div.overlay" class="floatLeft"><img id="videoAdvert" src="/static/images/btn_video.png" alt="Promo Video"></a>
+</div>
+<div class="row">
+    {% include "sidebar_latest_news.html" %}
+    <div class="row oneFiftyHigh overflowHidden"><a href="/ambassador/"><img src="/static/images/am_banner.png" alt="Join the team; Become an Ambassador."></a></div>
+    {% include "sidebar_newsletter.html" %}
+    <a href="/faq/"><div id="faqLink" class="oneCol bgGreen fadeBgBlue oneFiftyHigh"><p>GOT QUESTIONS?</p></div></a>
+    <a href="/artists/apply/" title="Want to play?"><div id="playAdvert"></div></a>
+</div>
+
+
+<div class="overlay"> 
+    <a id="player" href="/static/"> 
+        &nbsp;
+    </a> 
+</div> 
+<script> 
+$(function() {
+    // install flowplayer into flowplayer container
+    var player = $f("player", "http://builds.flowplayer.netdna-cdn.com/77965/41406/flowplayer-3.2.6-0.swf", {clip: 'http://www.summersaturnalia.com/static/video/SS_PROMO_FINAL_2_360.flv'});
+    // setup button action. it will fire our overlay 
+    $("a[rel]").overlay({
+        // when overlay is opened, load our player
+        onLoad: function() {
+            player.load();
+        },
+        // when overlay is closed, unload our player
+        onClose: function() {
+            player.unload();
+        }
+    });
+});
+</script> 
+{% endblock %}
+

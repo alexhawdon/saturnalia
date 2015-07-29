@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Forgetful friend?{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen minTwoColHigh">
+            <h1>Forgetful friend?</h1>
+            <p>If you think that one of your friends forgot to put your code in when buying a ticket or deposit, put as much information as you can in the form below and we'll try to sort it out.</p>
+            {% if outstandingClaims %}
+            <p class="error">We are still looking into the enquiries listed below.  We'll let you know when we're done.</p>
+            <table>
+                <tr>
+                    <th>Date</th><th>First name(s)</th><th>Last name</th><th>Other details</th>
+                </tr>
+                {% for claim in outstandingClaims %}
+                    <tr>
+                        <td>{{claim.date|date:"D jS N"}}</td><td>{{claim.fname}}</td><td>{{claim.lname}}</td><td>{{claim.other_details|truncatewords:5}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+            <h1>Your friend's details</h1>
+            <form action="" method="post">
+            <ul>
+                {{ saleClaimForm.as_ul }}
+            </ul>
+            <input type="submit" value="Submit Claim">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+</div>
+{% endblock %}

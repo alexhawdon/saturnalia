@@ -1,0 +1,12 @@
+<div class="twoCol bgWhite categoryList">
+    <p>Categories -</p>
+    <ul>
+    {% for category in category_list %}
+        {% if category.url in request.path %}
+            <li class="active">{{category.name}} ({{category.count}})</li>
+        {% else %}
+            <li><a href="{{category.url}}">{{category.name}} ({{category.count}})</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>

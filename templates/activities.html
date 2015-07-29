@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %} | Activities{% endblock %}
+
+{% block content %}
+<div id="mainPane" class="floatLeft">
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>Super Silly Sports Day</h1>
+            <p class="feature">Those of you who took part in last year’s Super Silly Sports Day will be delighted to hear that we will once again be holding the absurd event that brought you the four-legged race, the melon and ladle race, and the two-man sack race.  Just turn up and take part.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="fourCol bgGreen">
+            <h1>Fancy Dress Saturday</h1>
+            <p class="feature">Saturday is fancy dress day: your chance to show your creativity, and win a prize if your costume is judged to be the best by a Saturnalian panel.  Saturnalia has a space theme, so if your costume’s in keeping you can pick up extra points!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="fourCol bgWhite">
+            <p class="feature">Much much more to be announced closer to the time...</p>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+    <div class="row">
+        {% include "sidebar_newsletter.html" %}
+    </div>
+</div>
+{% endblock %}

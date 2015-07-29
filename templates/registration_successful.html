@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block sectionTitle %}| Registration Successful{% endblock %}
+
+{% block content %}
+<div id="mainPane">
+    <div class="row">
+        <div class="fourCol bgGreen minTwoColHigh">
+            <h1>Registration Successful</h1>
+            <p class="feature">Welcome on board!</p>
+            <p>Login at the top of the page with your email address and chosen password to get started.</p>
+        </div>
+    </div>
+</div>
+<div class="floatLeft">
+    <div class="row">
+        {% include "sidebar_latest_news.html" %}
+    </div>
+</div>
+{% endblock %}
